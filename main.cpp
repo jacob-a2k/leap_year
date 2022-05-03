@@ -2,13 +2,16 @@
 #include <limits>
 #include <cstdlib>
 #include <stdio.h>
+#include <string>
+#include <cstdlib>
 
 using namespace std;
 
 void choose_the_year();
 void check_the_year();
 void repeat_the_year();
-long long year;
+string year,last_four_numbers;
+int dlugosc,number;
 
 int main()
 {
@@ -24,19 +27,13 @@ void choose_the_year(){
 
     cout << "\nWitaj! Podaj dowolny rok, a ja sprawdze czy jest on przestepny!" << endl;
     cin >> year;
-
-    while(!cin.good()){
-        cout << "Popelniles blad podczas wprowadzania danych! Ponow probe!" << endl;
-        cin.clear();
-        cin.ignore(numeric_limits < streamsize > ::max(), '\n');
-
-        cout << "\nWitaj! Podaj dowolny rok, a ja sprawdze czy jest on przestepny!" << endl;
-        cin >> year;
-    }
+    dlugosc = year.length();
+    last_four_numbers = year.substr(dlugosc-4,4);
     }
 void check_the_year(){
 
-    if(((year%4 == 0 && year%100 != 0) || year%400 == 0)){
+    number = atoi(last_four_numbers.c_str());
+    if((number%400 == 0) || (number%4 == 0 && number%100 != 0)){
             cout << "Ten rok jest przestepny!";
         }
             else{
