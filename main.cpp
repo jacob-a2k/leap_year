@@ -7,11 +7,12 @@
 
 using namespace std;
 
+bool is_number;
 void choose_the_year();
 void check_the_year();
 void repeat_the_year();
 string year,last_four_numbers;
-int dlugosc,number;
+int number_length,number;
 
 int main()
 {
@@ -25,10 +26,20 @@ int main()
 }
 void choose_the_year(){
 
-    cout << "\nWitaj! Podaj dowolny rok, a ja sprawdze czy jest on przestepny!" << endl;
-    cin >> year;
-    dlugosc = year.length();
-    last_four_numbers = year.substr(dlugosc-4,4);
+    do{
+        is_number = true;
+        cout << "\nWitaj! Podaj dowolny rok, a ja sprawdze czy jest on przestepny!" << endl;
+        cin >> year;
+        for(int i = 0; i < year.length(); i++){
+            if( !isdigit(year[ i ] ) )
+                is_number = false;
+        }
+        if( !is_number )
+            cout << "To nie jest liczba!" << endl;
+    }while( !is_number );
+
+    number_length = year.length();
+    last_four_numbers = year.substr(number_length-4,4);
     }
 void check_the_year(){
 
