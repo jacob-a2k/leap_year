@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <limits>
-//#include <stdlib.h>
+#include "utils.h"
 
 using namespace std;
 
@@ -32,20 +32,21 @@ int choose_the_year( ){
 	cout << "\nWitaj! Podaj dowolny rok, a ja sprawdze czy jest on przestepny!" << endl;
 		int tab[ 4 ];
 		char current_sign;
-		current_sign = getchar();
-		if( current_sign == '\n' ){
-            cout << "Ten znak nie jest liczba!"<< endl;
-            exit (0);
-		}
-		else if( current_sign > '0' && current_sign <= '9' ){
-			tab[ 0 ] = current_sign - '0';
-		}
-		else{
-			cout << "Ten znak nie jest liczba!"<< endl;
-            exit (0);
-		}
+        current_sign = getche();
+        if( current_sign > '0' && current_sign <= '9'){
+            tab[ 0 ] = current_sign - '0';
+        }
+        else{
+            do{
+                cout << "\nTen znak nie jest liczba!"<< endl;
 
-		current_sign = getchar();
+                current_sign = getche();
+
+            }while( !(current_sign > '0' && current_sign <= '9') );
+            tab[ 0 ] = current_sign - '0';
+        }
+
+		current_sign = getche();
 		if( current_sign == '\n' ){
 			return tab [ 0 ];
 		}
@@ -57,7 +58,7 @@ int choose_the_year( ){
             exit (0);
 		}
 
-		current_sign = getchar();
+		current_sign = getche();
 		if( current_sign == '\n' ){
 			return tab[ 0 ] * 10 + tab[ 1 ] ;
 		}
@@ -69,7 +70,7 @@ int choose_the_year( ){
             exit (0);
 		}
 
-		current_sign = getchar();
+		current_sign = getche();
 		if( current_sign == '\n' ){
 			return  tab[ 0 ] * 100 + tab[ 1 ] * 10 + tab[ 2 ];
 		}
@@ -82,7 +83,7 @@ int choose_the_year( ){
 		}
 
 		for( ;; ){
-				current_sign = getchar();
+				current_sign = getche();
 			if( current_sign == '\n' ){
 				return tab[ 0 ] * 1000 + tab[ 1 ] * 100 + tab[ 2 ] * 10 + tab[ 3 ];
 		    }
@@ -139,7 +140,6 @@ void repeat_the_year(){
 
     }
 }
-
 
 
 
