@@ -9,6 +9,9 @@ int choose_the_year();
 int check_the_year(int number);
 void repeat_the_year();
 void correct_input();
+int is_number(char current_sign);
+
+
 
 int main()
 {
@@ -31,10 +34,9 @@ int choose_the_year( ){
 
 	cout << "\nWitaj! Podaj dowolny rok, a ja sprawdze czy jest on przestepny!" << endl;
 		int tab[ 4 ];
-		char current_sign;
-        current_sign = getche();
-        if( current_sign > '0' && current_sign <= '9'){
-            tab[ 0 ] = current_sign - '0';
+		char current_sign = getche();
+        if( is_number(current_sign) ){
+            tab[ 0 ] = is_number( current_sign );
         }
         else{
             do{
@@ -138,6 +140,16 @@ void repeat_the_year(){
             repeat = getchar();
         }
 
+    }
+}
+int is_number( char current_sign ){
+    int number;
+    if( current_sign > '0' && current_sign <= '9'){
+        number = current_sign - '0';
+        return number;
+    }
+    else{
+        return 0;
     }
 }
 
