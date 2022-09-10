@@ -1,3 +1,6 @@
 *.o
 bin/Debug/
 /bin
+/*.depend
+/*.layout
+/*.cscope_file_list
