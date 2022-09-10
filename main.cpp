@@ -143,6 +143,7 @@ void repeat_the_year(){
     }
 }
 int is_number( char current_sign ){
+	//miałeś zrobić dwie funkcję nie jedną
     int number;
     if( current_sign > '0' && current_sign <= '9'){
         number = current_sign - '0';
