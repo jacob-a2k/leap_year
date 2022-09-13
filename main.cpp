@@ -10,7 +10,7 @@ int check_the_year(int number);
 void repeat_the_year();
 void correct_input();
 int is_number(char current_sign);
-
+void put_in_tab( char current_sign, int tab[] );
 
 
 int main()
@@ -36,7 +36,7 @@ int choose_the_year( ){
 		int tab[ 4 ];
 		char current_sign = getche();
         if( is_number(current_sign) ){
-            tab[ 0 ] = is_number( current_sign );
+            put_in_tab( current_sign, tab );
         }
         else{
             do{
@@ -143,15 +143,19 @@ void repeat_the_year(){
     }
 }
 int is_number( char current_sign ){
-	//miałeś zrobić dwie funkcję nie jedną
-    int number;
+
     if( current_sign > '0' && current_sign <= '9'){
-        number = current_sign - '0';
-        return number;
+        return current_sign;
     }
     else{
         return 0;
     }
+}
+
+void put_in_tab( char current_sign, int tab[] ){
+
+    tab[ 0 ] = current_sign - '0';
+
 }
 
 
