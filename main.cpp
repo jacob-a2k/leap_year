@@ -142,6 +142,8 @@ void repeat_the_year(){
 
     }
 }
+//miała być funkcja, która miała sprawdzać czy dany znak jest liczbą
+//poczytaj o zmiennych typu bool
 int is_number( char current_sign ){
 
     if( current_sign > '0' && current_sign <= '9'){
@@ -152,6 +154,7 @@ int is_number( char current_sign ){
     }
 }
 
+//miała być funkcja do konwersji nie do wstawiania do tablicy
 void put_in_tab( char current_sign, int tab[] ){
 
     tab[ 0 ] = current_sign - '0';
