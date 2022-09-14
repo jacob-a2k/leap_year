@@ -142,8 +142,7 @@ void repeat_the_year(){
 
     }
 }
-//miała być funkcja, która miała sprawdzać czy dany znak jest liczbą - poprawione
-//poczytaj o zmiennych typu bool
+
 bool is_number( char current_sign ){
     bool sign;
     if( current_sign > '0' && current_sign <= '9'){
@@ -155,12 +154,11 @@ bool is_number( char current_sign ){
     return sign;
 }
 
-//miała być funkcja do konwersji nie do wstawiania do tablicy - poprawione
-//czemu wmymysliłes jakis static cast przecież tam już była logika 
+//czemu wmymysliłes jakis static cast przecież tam już była logika
 //nie kombinuj za duzo
 int convert_sign( char current_sign ){
     int sign;
-    sign = static_cast<int>(current_sign);
+    sign = current_sign - '0';
 
     return sign;
 }
