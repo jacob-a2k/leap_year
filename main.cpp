@@ -156,6 +156,8 @@ bool is_number( char current_sign ){
 }
 
 //miała być funkcja do konwersji nie do wstawiania do tablicy - poprawione
+//czemu wmymysliłes jakis static cast przecież tam już była logika 
+//nie kombinuj za duzo
 int convert_sign( char current_sign ){
     int sign;
     sign = static_cast<int>(current_sign);
