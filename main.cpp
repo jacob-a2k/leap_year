@@ -9,8 +9,8 @@ int choose_the_year();
 int check_the_year(int number);
 void repeat_the_year();
 void correct_input();
-int is_number(char current_sign);
-void put_in_tab( char current_sign, int tab[] );
+bool is_number(char current_sign);
+int convert_sign( char current_sign);
 
 
 int main()
@@ -35,8 +35,8 @@ int choose_the_year( ){
 	cout << "\nWitaj! Podaj dowolny rok, a ja sprawdze czy jest on przestepny!" << endl;
 		int tab[ 4 ];
 		char current_sign = getche();
-        if( is_number(current_sign) ){
-            put_in_tab( current_sign, tab );
+        if( is_number( current_sign ) ){
+            tab[0] = convert_sign(current_sign);
         }
         else{
             do{
@@ -142,23 +142,25 @@ void repeat_the_year(){
 
     }
 }
-//miała być funkcja, która miała sprawdzać czy dany znak jest liczbą
+//miała być funkcja, która miała sprawdzać czy dany znak jest liczbą - poprawione
 //poczytaj o zmiennych typu bool
-int is_number( char current_sign ){
-
+bool is_number( char current_sign ){
+    bool sign;
     if( current_sign > '0' && current_sign <= '9'){
-        return current_sign;
+        sign = true;
     }
     else{
-        return 0;
+        sign = false;
     }
+    return sign;
 }
 
-//miała być funkcja do konwersji nie do wstawiania do tablicy
-void put_in_tab( char current_sign, int tab[] ){
+//miała być funkcja do konwersji nie do wstawiania do tablicy - poprawione
+int convert_sign( char current_sign ){
+    int sign;
+    sign = static_cast<int>(current_sign);
 
-    tab[ 0 ] = current_sign - '0';
-
+    return sign;
 }
 
 
