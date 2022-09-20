@@ -154,8 +154,7 @@ bool is_number( char current_sign ){
     return sign;
 }
 
-//czemu wmymysliłes jakis static cast przecież tam już była logika
-//nie kombinuj za duzo
+//zmien nazwe funkcji na convert_to_int
 int convert_sign( char current_sign ){
     int sign;
     sign = current_sign - '0';
